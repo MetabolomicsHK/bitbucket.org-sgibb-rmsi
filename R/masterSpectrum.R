@@ -15,9 +15,10 @@
 #'
 #' library("msir")
 #'
-#' s <- list(createMassSpectrum(mass=1:5, intensity=1:5)
-#
-#' topN(list(s), n=2)
+#' s <- list(createMassSpectrum(mass=1:5, intensity=1:5),
+#'           createMassSpectrum(mass=1:5, intensity=5:1))
+#' masterSpectrum(s)
+#'
 #' @export
 masterSpectrum <- function(x, method=c("mean", "median", "sum")) {
   if (isMassPeaksList(x)) {

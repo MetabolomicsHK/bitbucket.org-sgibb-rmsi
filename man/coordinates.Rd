@@ -4,11 +4,14 @@
 \alias{coordinates}
 \title{Get coordinates}
 \usage{
-coordinates(x)
+coordinates(x, adjust = TRUE)
 }
 \arguments{
 \item{x}{\code{list} of \code{\link[MALDIquant]{MassSpectrum-class}} or
 \code{\link[MALDIquant]{MassPeaks-class}} objects.}
+
+\item{adjust}{\code{logical}, should the coordinates reset to start at
+`c(x=1, y=1)`?}
 }
 \value{
 a 2-column \code{matrix} (x, y) containing the coordinates.

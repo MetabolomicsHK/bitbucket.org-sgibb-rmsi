@@ -11,5 +11,7 @@
 #'
 #' @import MALDIquant
 #' @import MALDIquantForeign
+#' @import shiny
+#' @importFrom lattice levelplot
 #'
 NULL

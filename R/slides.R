@@ -1,3 +1,4 @@
+#'@export
 slides <- function(x, range, step, tolerance,
                    method=c("sum", "mean", "median"), verbose=TRUE) {
   .msg(verbose, "trim spectra to mz ", paste0(range, collapse=":"))

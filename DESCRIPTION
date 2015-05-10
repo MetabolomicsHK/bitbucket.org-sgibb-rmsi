@@ -5,8 +5,8 @@ Title: Mass Spectrometry Imaging
 Authors@R: c(person("Robert", "Winkler", role=c("aut", "cre"),
         email="robert.winkler@bioprocess.org"), person("Sebastian", "Gibb",
         role="aut", email="mail@sebastiangibb.de"))
-Depends: R (>= 3.0.0), MALDIquant (>= 1.11.7), MALDIquantForeign
-Imports: lattice, shiny
+Depends: R (>= 3.0.0), MALDIquant (>= 1.11.7), MALDIquantForeign, lattice
+Imports: shiny
 Suggests: testthat (>= 0.8)
 Description: This package provides some functions for Mass Spectrometry Imaging
   data.

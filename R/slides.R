@@ -17,7 +17,7 @@ slides <- function(x, range, step, tolerance,
   .msg(verbose, "create ims slides")
 
   if (verbose) {
-    pb <- txtProgressBar(0L, length(center))
+    pb <- txtProgressBar(0L, length(center), style=3L)
   }
   slides <- array(0L, dim=c(n[1L], n[2L], z=length(center)))
 

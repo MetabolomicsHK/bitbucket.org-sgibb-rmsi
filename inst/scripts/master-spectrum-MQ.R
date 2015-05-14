@@ -17,7 +17,7 @@ imagespectra <- topN(imagespectra, n=100)
 
 mzdensity <- density(unlist(lapply(imagespectra, mass)), bw=0.01)
 
-masterspectrum <- masterSpectrum(imagespectra)
+masterspectrum <- masterSpectrum(imagespectra, method="sum")
 
 # peak picking and export to a peaklist.csv file
 peaks <- detectPeaks(masterspectrum, SNR=3)

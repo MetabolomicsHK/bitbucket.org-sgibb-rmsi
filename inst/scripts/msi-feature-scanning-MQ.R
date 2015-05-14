@@ -24,7 +24,7 @@ for (i in seq(along=center)) {
                   main=titles[i], xlab="x/ pixel", ylab="y/ pixel",
                   scales=list(draw=FALSE), contour=TRUE, pretty=TRUE,
                   col.regions=col))
-  ## useRaster=TRUE, increases run time dramatically but the visual
+  ## useRaster=TRUE, decreases run time dramatically but the visual
   ## representation changes as well
   #print(levelplot(s[,,i],
   #                main=titles[i], xlab="x/ pixel", ylab="y/ pixel",

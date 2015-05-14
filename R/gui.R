@@ -1,3 +1,4 @@
+#' @export
 msirGUI <- function(maxRequestSize=250*1024^2) {
   options(shiny.maxRequestSize=maxRequestSize)
 

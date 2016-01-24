@@ -7,7 +7,7 @@ Authors@R: c(person("Robert", "Winkler", role=c("aut", "cre"),
         role="aut", email="mail@sebastiangibb.de"))
 Depends:
     R (>= 3.0.0),
-    MALDIquant (>= 1.11.7),
+    MALDIquant (>= 1.12),
     MALDIquantForeign,
     lattice
 Imports:

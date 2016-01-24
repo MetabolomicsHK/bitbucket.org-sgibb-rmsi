@@ -36,8 +36,10 @@ rmsiGUI <- function(maxRequestSize=250*1024^2) {
         if (is.null(rawSpectra())) {
           return(NULL)
         }
-        slides(rawSpectra(), range=input$range, step=input$step,
-               tolerance=input$tolerance)
+        msiSlices(rawSpectra(),
+                  center=seq(from=input$range[1L],
+                             to=input$range[2L], by=input$step),
+                  tolerance=input$tolerance)
       })
 
       centers <- reactive({
@@ -69,11 +71,12 @@ rmsiGUI <- function(maxRequestSize=250*1024^2) {
       })
 
       updateRangeSlider <- observe({
-        input$file
+        if(!is.null(input$file)) {
         updateSliderInput(session, "range", value=roundedMzRange(),
                           min=roundedMzRange()[1L], max=roundedMzRange()[2L])
         updateSliderInput(session, "center", value=roundedMzRange()[1L],
                           min=roundedMzRange()[1L], max=roundedMzRange()[2L])
+        }
       })
 
       updateCenterSlider <- observe({

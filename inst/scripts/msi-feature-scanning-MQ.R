@@ -6,7 +6,8 @@ filename <- file.path("..", "data", "ltpmsi-chilli.imzML")
 
 imagespectra <- importImzMl(filename, centroided=TRUE)
 
-s <- slides(imagespectra, range=c(40, 540), step=0.2, tolerance=0.4)
+s <- msiSlices(imagespectra, center=seq(from=40, to=540, by=0.2),
+               tolerance=0.4)
 center <- attr(s, "center")
 tolerance <- attr(s, "tolerance")
 

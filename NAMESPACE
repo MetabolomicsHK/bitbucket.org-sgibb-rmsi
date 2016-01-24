@@ -2,7 +2,6 @@
 
 export(masterSpectrum)
 export(rmsiGUI)
-export(slides)
 export(topN)
 import(MALDIquant)
 import(MALDIquantForeign)

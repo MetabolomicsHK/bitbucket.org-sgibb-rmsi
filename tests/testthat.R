@@ -1,2 +1,2 @@
 library("testthat")
-test_check("msir")
+test_check("rmsi")

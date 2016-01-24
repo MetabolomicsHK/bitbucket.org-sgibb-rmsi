@@ -1,25 +1,17 @@
-# msir
+# rmsi
 
 ### Installation ###
 
-*msir* depends on the latest version of *MALDIquant* (that is not on CRAN yet):
-
 ```
-if (!require("devtools")) {
-    install.packages("devtools")
-    library("devtools")
-}
-install_github("sgibb/MALDIquant")
-install_github("sgibb/MALDIquantForeign")
-install_bitbucket("sgibb/msir")
+install_bitbucket("sgibb/rmsi")
 
 ```
 
 ### Usage ###
 ```
-library("msir")
+library("rmsi")
 
-msirGUI()
+rmsiGUI()
 ```
 
 Please find the modified MSI.R scripts in `inst/scripts`

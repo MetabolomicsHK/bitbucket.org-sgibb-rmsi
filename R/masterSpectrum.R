@@ -13,7 +13,7 @@
 #' @author Sebastian Gibb \email{mail@@sebastiangibb.de}
 #' @examples
 #'
-#' library("msir")
+#' library("rmsi")
 #'
 #' s <- list(createMassSpectrum(mass=1:5, intensity=1:5),
 #'           createMassSpectrum(mass=1:5, intensity=5:1))

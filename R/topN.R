@@ -15,7 +15,7 @@
 #' @author Sebastian Gibb \email{mail@@sebastiangibb.de}
 #' @examples
 #'
-#' library("msir")
+#' library("rmsi")
 #'
 #' s <- createMassSpectrum(mass=1:5, intensity=1:5)
 #' topN(list(s), n=2)

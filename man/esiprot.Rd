@@ -9,7 +9,7 @@
 and molecular weight calculation of proteins from electrospray ionization
 mass spectrometry data calculate.}
 \usage{
-\S4method{esiprot}{numeric}(x, ...)
+\S4method{esiprot}{numeric}(x, zrange = c(1, 100), hydrogen = 1.00794)
 }
 \arguments{
 \item{x}{\code{double} consecutive peaks}

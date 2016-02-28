@@ -35,14 +35,14 @@
 #' @export
 setMethod(f="esiprot",
           signature=signature(x="numeric"),
-          definition=function(x, ...) {
-  .esiprot(x, ...)
+          definition=function(x, zrange=c(1, 100), hydrogen=1.00794) {
+  .esiprot(x, zrange, hydrogen)
 })
 
 setMethod(f="esiprot",
           signature=signature(x="MassPeaks"),
-          definition=function(x, ...) {
-  .esiprot(mass(x), ...)
+          definition=function(x, zrange=c(1, 100), hydrogen=1.00794) {
+  .esiprot(mass(x), zrange, hydrogen)
 })
 
 .esiprot <- function(x, zrange=c(1, 100), hydrogen=1.00794) {

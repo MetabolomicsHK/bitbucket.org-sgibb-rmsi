@@ -46,20 +46,16 @@ setMethod(f="esiprot",
 })
 
 .esiprot <- function(x, zrange=c(1, 100), hydrogen=1.00794) {
-  z <- trunc(optimize(.esiprotopt, interval=zrange,
-                      m=x, hydrogen=hydrogen)$minimum)
-  x <- .mw(x, z, hydrogen)
-  list(mw=mean(x), sd=sd(x), z=z)
+  stopifnot(length(zrange) == 2L)
+  z <- seq(floor(max(length(x), zrange[1L])),
+           ceiling(max(length(x), zrange[2L])))
+  m <- .z(z, length(x)) * (x - hydrogen)
+  s <- apply(m, 2, sd)
+  i <- which.min(s)
+  list(mw=mean(m[, i]), sd=s[i], z=z[i])
 }
 
-.mw <- function(m, z, hydrogen) {
-  .z(z, length(m)) * (m - hydrogen)
-}
-
-.z <- function(z, n) {
-  trunc(z:(z - n + 1))
-}
-
-.esiprotopt <- function(x, m, hydrogen) {
-  sd(.mw(m, x, hydrogen))
+.z <- function(x, n) {
+  x <- t(matrix(x, ncol = n, nrow = length(x)))
+  x - (0L:(n - 1L))
 }

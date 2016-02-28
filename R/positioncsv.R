@@ -5,7 +5,11 @@
 #' @param resolution in mm
 #' @export
 positioncsv <- function(file, x, y, resolution) {
-  xy <- expand.grid(x=seq(0, x, by=resolution),
-                    y=seq(0, y, by=resolution))
+  nx <- trunc(x/resolution)
+  ny <- trunc(y/resolution)
+
+  xy <- cbind(x=rep(c(0L:nx, nx:0L), length.out=(nx + 1L) * (ny + 1L)),
+              y=rep(0L:ny, each=nx + 1L))
+
   write.table(xy, file=file, sep=",", row.names=FALSE, col.names=FALSE)
 }

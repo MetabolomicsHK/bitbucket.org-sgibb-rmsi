@@ -39,5 +39,26 @@ gcode <- function(file, x, y, resolution, wait, verbose=TRUE) {
   m
 }
 
-  writeLines(c("G21", "G91", head(as.vector(m), -1L)), con=file)
+#' Parses gcode content (second row of .gcode output matrix)
+#' @param x character vector
+#' @seealso http://reprap.org/wiki/G-code#G-commands
+#' @noRd
+.parsegcode <- function(x, relative=TRUE) {
+  x <- x[grepl("^G0", x)]
+
+  pos <- lapply(strsplit(x, "\\s+"), function(xx) {
+    xx <- xx[-1L]
+    xx <- setNames(as.double(substr(xx, 2L, nchar(xx))),
+                   tolower(substr(xx, 1L, 1L)))
+    as.numeric(xx[c("x", "y", "z")])
+  })
+  pos <- do.call(rbind, pos)
+  colnames(pos) <- c("x", "y", "z")
+  pos[is.na(pos)] <- 0L
+
+  if (!relative) {
+    pos <- apply(pos, 2L, cumsum)
+  }
+
+  pos
 }

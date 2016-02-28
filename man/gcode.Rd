@@ -22,4 +22,7 @@ gcode(file, x, y, resolution, wait, verbose = TRUE)
 \description{
 Creates a gcode file.
 }
+\seealso{
+http://reprap.org/wiki/G-code#G-commands
+}
 

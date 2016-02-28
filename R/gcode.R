@@ -1,12 +1,29 @@
 #' Creates a gcode file.
+#'
 #' @param file filename
 #' @param x sampling area in x direction in mm
 #' @param y sampling area in y direction in mm
 #' @param resolution in mm
 #' @param wait waiting time in sec
 #' @param verbose verbose output?
+#' @seealso http://reprap.org/wiki/G-code#G-commands
 #' @export
 gcode <- function(file, x, y, resolution, wait, verbose=TRUE) {
+  m <- .gcode(x=x, y=y, resolution=resolution, wait=wait)
+
+  .msg(verbose, "Approximate sampling time: ", ncol(m) * wait)
+
+  writeLines(c("G21", "G91", head(as.vector(m), -1L)), con=file)
+}
+
+#' Creates a gcode content (workhorse of gcode)
+#' @param x sampling area in x direction in mm
+#' @param y sampling area in y direction in mm
+#' @param resolution in mm
+#' @param wait waiting time in sec
+#' @seealso http://reprap.org/wiki/G-code#G-commands
+#' @noRd
+.gcode <- function(x, y, resolution, wait) {
   nx <- trunc(x/resolution) + 1L
   ny <- trunc(y/resolution) + 1L
 
@@ -19,7 +36,8 @@ gcode <- function(file, x, y, resolution, wait, verbose=TRUE) {
 
   m[2L, seq(nx, ncol(m), by=nx)] <- sprintf("G0 Y%f", resolution)
 
-  .msg(verbose, "Approximate sampling time: ", nx * ny * wait)
+  m
+}
 
   writeLines(c("G21", "G91", head(as.vector(m), -1L)), con=file)
 }
